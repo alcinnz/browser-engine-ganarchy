@@ -3,3 +3,42 @@
 "https://github.com/alcinnz/stylish-haskell.git"."master" = { active=true }
 "https://git.nzoss.org.nz/alcinnz/stylish-haskell"."master" = { active=true }
 
+[projects.6652ecde1784513f0f8ab1ab2ce0cd4d69b922b8]
+"https://github.com/espeak-ng/espeak-ng.git"."master" = { active=true }
+
+[projects.2714edaa328ec8f82c569f554839018f70a80fc9]
+"https://github.com/julius-speech/julius.git"."master" = { active=true }
+
+[projects.e9cff501beff90631ae93be8ca0e75ee738361e7]
+"https://github.com/chrisdone/vado.git"."master" = { active=true }
+
+[projects.f46b77160a0244b83ccd486df82ce14f7a4df59e]
+"https://git.netsurf-browser.org/netsurf.git"."master" = { active=true }
+
+[projects.05439f5cc69eaa3deaf3db52a7999af09a2c293a]
+"https://git.savannah.gnu.org/git/freetype/freetype2.git"."master" = { active=true }
+
+[projects.49196f3f98ad73881bf382ce0663279b4ebe34fb]
+"https://github.com/fribidi/fribidi.git"."master" = { active=true }
+
+[projects.f18ea1dd3a9961661a383b2966de57ea68a267e7]
+"https://github.com/harfbuzz/harfbuzz.git"."master" = { active=true }
+
+[projects.d80d151473abe5425f347b89085496c4ee26aecf]
+"https://gitlab.gnome.org/GNOME/pango.git"."master" = { active=true }
+
+[projects.09a136403cb861f16fc30b1da4735c5334b8f012]
+"https://github.com/servo/webrender.git"."master" = { active=true }
+
+[projects.96b782c026fe026dda0b2c61dcb7cb50f4aa828c]
+"https://gitlab.gnome.org/GNOME/gtk.git"."master" = { active=true }
+
+[projects.4bab8a4b001be1ef8cf5f663f23fc079861d457e]
+"https://github.com/snoyberg/http-client.git"."master" = { active=true }
+
+[projects.7038b5de5b4f91e134cce7bef08130881170544a]
+"https://github.com/snoyberg/xml.git"."master" = { active=true }
+
+[projects.635efafdf60f2f02413dd70036ad65645c481cc3]
+"https://github.com/haskell/network-uri.git"."master" = { active=true }
+

@@ -19,28 +19,18 @@
         You should have received a copy of the GNU General Public License
         along with this program.  If not, see <https://www.gnu.org/licenses/>.
         -->
-        <title>GDK/GSK</title>
-        <meta name="description" content="GNOME&#39;s CSS rendering engine (GSK) and windowing library (GDK)" />
+        <title>HTTP Client</title>
+        <meta name="description" content="Haskell HTTP client" />
         <style type="text/css">.branchname { color: #808080; font-style: italic; }</style>
     </head>
     <body>
-        <h1>GDK/GSK</h1>
-        <p>Tracking <span id="project_commit"><a href="web+ganarchy:96b782c026fe026dda0b2c61dcb7cb50f4aa828c">96b782c026fe026dda0b2c61dcb7cb50f4aa828c</a></span></p>
-        <div id="project_body"><p>x11: Make sure stream stays alive long enough</p><p>When unreffing the stream from a different thread, the close function
-will schedule its cleanup asynchornously in the main thread.
-We need to make sure the stream object stays alive for as long as
-that hasn&#39;t happened, so ref() it.</p><p>Fixes #2003
-</p></div>
+        <h1>HTTP Client</h1>
+        <p>Tracking <span id="project_commit"><a href="web+ganarchy:4bab8a4b001be1ef8cf5f663f23fc079861d457e">4bab8a4b001be1ef8cf5f663f23fc079861d457e</a></span></p>
+        <div id="project_body"><p>Merge pull request #407 from mbj/add/note-about-manager-modify-request</p><p>Add note about managerModifyRequest semantics</p></div>
         <ul>
-        <li><a href="https://gitlab.gnome.org/GNOME/gtk.git">https://gitlab.gnome.org/GNOME/gtk.git</a> <span class="branchname">[master]</span>: x11: Make sure stream stays alive long enough
+        <li><a href="https://github.com/snoyberg/http-client.git">https://github.com/snoyberg/http-client.git</a> <span class="branchname">[master]</span>: Merge pull request #407 from mbj/add/note-about-manager-modify-request
 
-When unreffing the stream from a different thread, the close function
-will schedule its cleanup asynchornously in the main thread.
-We need to make sure the stream object stays alive for as long as
-that hasn&#39;t happened, so ref() it.
-
-Fixes #2003
-</li>
+Add note about managerModifyRequest semantics</li>
         </ul>
         <p>Powered by <a href="https://ganarchy.autistic.space/">GAnarchy</a>. AGPLv3-licensed. <a href="https://cybre.tech/SoniEx2/ganarchy">Source Code</a>.</p>
         <p>
