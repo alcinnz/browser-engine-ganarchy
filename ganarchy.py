@@ -394,10 +394,10 @@ class Project:
             self.title = None
             self.description = None
 
-    def update(self):
+    def update(self, config):
         # TODO? check if working correctly
         results = [(repo, repo.update()) for repo in self.repos]
-        self.refresh_metadata()
+        self.refresh_metadata(config)
         return results
 
 class GAnarchy:
@@ -572,8 +572,8 @@ def cron_target(project):
     entries = []
     generate_html = []
     c = conn.cursor()
-    p = Project(conn, project, list_repos=True)
-    results = p.update()
+    p = Project(conn, conf, project, list_repos=True)
+    results = p.update(conf)
     for (repo, count) in results:
         if count is not None:
             entries.append((repo.url, count, repo.hash, repo.branch, project))
