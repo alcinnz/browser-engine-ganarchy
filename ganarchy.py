@@ -117,7 +117,7 @@ def get_template_loader():
         <p>This is {{ ganarchy.title|e }}. Currently tracking the following projects:</p>
         <ul>
         {% for project in ganarchy.projects -%}
-            <li><a href="/project/{{ project.commit|e }}">{{ project.title|e }}</a>: {{ project.description|e }}</li>
+            <li><a href="{{ ganarchy.base_url|e }}project/{{ project.commit|e }}">{{ project.title|e }}</a>: {{ project.description|e }}</li>
         {% endfor -%}
         </ul>
         <p>Powered by <a href="https://ganarchy.autistic.space/">GAnarchy</a>. AGPLv3-licensed. <a href="https://cybre.tech/SoniEx2/ganarchy">Source Code</a>.</p>
