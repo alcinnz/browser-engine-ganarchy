@@ -380,19 +380,20 @@ class Project:
         try:
             project = GIT.get_commit_message(self.commit)
             project_title, project_desc = (lambda x: x.groups() if x is not None else ('', None))(re.fullmatch('^\\[Project\\]\s+(.+?)(?:\n\n(.+))?$', project, flags=re.ASCII|re.DOTALL|re.IGNORECASE))
-            if not project_title.strip():
+            if not project_title or not project_title.strip():
                 metadata = config.metadata[self.commit]
-                project_title = metadata.title
-                project_desc = metadata.description
+                project_title = metadata['title']
+                project_desc = metadata['description']
             # if project_desc: # FIXME
             #     project_desc = project_desc.strip()
             self.commit_body = project
             self.title = project_title
             self.description = project_desc
         except GitError:
-            self.commit_body = None
-            self.title = None
-            self.description = None
+            self.commit_body = ""
+            metadata = config.metadata[self.commit]
+            self.title = metadata['title']
+            self.description = metadata['description']
 
     def update(self, config):
         # TODO? check if working correctly
@@ -453,6 +454,10 @@ class Config:
             self._update_projects(base.projects, remove=remove, sanitize=False) # already sanitized
         projects = config_data.get('projects', {})
         self._update_projects(projects, remove=remove)
+
+        # Load in extended metadata
+        metadata = config_data.get('metadata', {})
+        self.metadata = {commit: data for commit, data in metadata.items()}
 
     def _update_projects(self, projects, remove, sanitize=True):
         for (project_commit, repos) in projects.items():
