@@ -357,9 +357,9 @@ class Repo:
             return None
 
 class Project:
-    def __init__(self, dbconn, project_commit, list_repos=False):
+    def __init__(self, dbconn, config, project_commit, list_repos=False):
         self.commit = project_commit
-        self.refresh_metadata()
+        self.refresh_metadata(config)
         self.repos = None
         if list_repos:
             self.list_repos(dbconn)
@@ -376,12 +376,14 @@ class Project:
                 repos.append(Repo(dbconn, self.commit, url, branch, head_commit))
         self.repos = repos
 
-    def refresh_metadata(self):
+    def refresh_metadata(self, config):
         try:
             project = GIT.get_commit_message(self.commit)
             project_title, project_desc = (lambda x: x.groups() if x is not None else ('', None))(re.fullmatch('^\\[Project\\]\s+(.+?)(?:\n\n(.+))?$', project, flags=re.ASCII|re.DOTALL|re.IGNORECASE))
-            if not project_title.strip(): # FIXME
-                project_title, project_desc = ("Error parsing project commit",)*2
+            if not project_title.strip():
+                metadata = config.metadata[self.commit]
+                project_title = metadata.title
+                project_desc = metadata.description
             # if project_desc: # FIXME
             #     project_desc = project_desc.strip()
             self.commit_body = project
@@ -425,7 +427,7 @@ class GAnarchy:
             projects = []
             with dbconn:
                 for (project,) in dbconn.execute('''SELECT DISTINCT "project" FROM "repos" '''): # FIXME? *maybe* sort by activity in the future
-                    projects.append(Project(dbconn, project, list_repos=list_repos))
+                    projects.append(Project(dbconn, config, project, list_repos=list_repos))
             projects.sort(key=lambda project: project.title) # sort projects by title
             self.projects = projects
         else:
