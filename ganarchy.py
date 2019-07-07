@@ -114,7 +114,7 @@ def get_template_loader():
     </head>
     <body>
         <h1>{{ ganarchy.title|e }}</h1>
-        <p>This is {{ ganarchy.title|e }}. Currently tracking the following projects:</p>
+        <p>This is <a href="README.md" title="TODO: inline">{{ ganarchy.title|e }}</a>. Currently tracking the following projects:</p>
         <ul>
         {% for project in ganarchy.projects -%}
             <li><a href="{{ ganarchy.base_url|e }}project/{{ project.commit|e }}">{{ project.title|e }}</a>: {{ project.description|e }}</li>
